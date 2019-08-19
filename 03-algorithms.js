@@ -71,7 +71,12 @@ let filterNames = (namesinA) => {
 console.log("filterNames")
 console.log(filterNames(names))
 
-//20304
+// 20304
+// set array of objects of special roman numerals numbers (e.g. I, IV, etc...)
+//
+
+
+
 
 
 
@@ -105,3 +110,49 @@ let b = (c, d, e, f) => c(d, e) - f
 console.log(b(a, 10, 4, 6)) 
 
 
+let r = ["V", "I", "I"]
+// r.join("")
+
+// let st = ""
+// let ar = []
+// r.forEach(s => {
+//     ar.push(s)
+// })
+// console.log(ar.join(""))
+
+let symbols = [
+    { number: 1, roman: 'I' },
+    { number: 4, roman: 'IV' },
+    { number: 5, roman: 'V' },
+    { number: 9, roman: 'IX' },
+    { number: 10, roman: 'X' },
+    { number: 40, roman: 'XL' },
+    { number: 50, roman: 'L' },
+    { number: 90, roman: 'XC' },
+    { number: 100, roman: 'C' },
+    { number: 400, roman: 'CD' },
+    { number: 500, roman: 'D' },
+    { number: 900, roman: 'CM' },
+    { number: 1000, roman: 'M' }
+]
+
+let toRoman = (n) => {
+    let result = ""
+    // Iterate symbols in reverse order
+    // We need to add the largest number first
+    symbols.reverse().forEach(sym => {
+        // calculate the number of this roman numeral we need
+        // need integer as can't add fractional amounts of numerals
+        let div = Math.trunc(n / sym.number)
+        // add the roman numerals to the result
+        for (i = 0; i < div; i++) {
+            result = result + sym.roman
+        }
+        // update n to equal remainder
+        // which need to be fill by smaller symbol
+        n = n % sym.number
+    })
+    return result
+}
+console.log("toRoman")
+console.log(toRoman(3564))
