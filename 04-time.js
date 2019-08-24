@@ -7,19 +7,18 @@ b(a, 3)
 b(a, 5)
 
 // 20402
-// we crreat a function that logs hello 
+// we creat a function that logs hello 
 // creat a function that increment function 
 
-// Can reference t from this function!?!?
-// (╯°□°)╯︵ ┻━┻
-let i = 0
-let helloSeconds = () => {
-    console.log(`Hello ${++i}`)
+console.log("helloSeconds")
+
+let seconds = 0
+let t = setInterval(() => {
+    seconds = seconds + 1
+    console.log(`Hello ${seconds}`)
     if (i == 5) {
         clearInterval(t)
     }
-}
-console.log("helloSeconds")
-let t = setInterval(helloSeconds, 1000)
+}, 1000)
 
 
